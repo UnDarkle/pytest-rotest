@@ -27,33 +27,33 @@ Features
 * Full support for running Rotest tests (TestCases and TestFlows)
 * Global resource manager
 * Global Rotest result object
-* --ipdbugger flag for setting up the ipdbugger wrapper (-D or --debug in Rotest cli)
-* --outputs cmd option for setting up output handlers (-o or --outputs in Rotest cli). Most handlers should work fine
-* --config for selecting Rotest run configuration file (-c or --config in Rotest cli)
+* ``--ipdbugger`` flag for setting up the ipdbugger wrapper (``-D`` or ``--debug`` in Rotest cli)
+* ``--outputs`` cmd option for setting up output handlers (``-o`` or ``--outputs`` in Rotest cli)
+* ``--config`` for selecting Rotest run configuration file (``-c`` or ``--config`` in Rotest cli)
 
 
 Requirements
 ------------
 
-* Python > 2.7 or > 3.5
-* Rotest > 7.3
-* Pytest > 3.5
+* Python >= 2.7 or >= 3.6
+* Rotest >= 7.3
+* Pytest >= 3.5
 
 
 Installation
 ------------
 
-You can install "pytest-rotest" via `pip`_ from `PyPI`_::
+You can install "pytest-rotest" via ``pip`` from PyPI::
 
     $ pip install pytest-rotest
 
 
 Contributing
 ------------
-Contributions are very welcome. Tests can be run with `tox`_, please ensure
+Contributions are very welcome. Tests can be run with ``tox``, please ensure
 the coverage at least stays the same before you submit a pull request.
 
 License
 -------
 
-Distributed under the terms of the `MIT`_ license, "pytest-rotest" is free and open source software
+Distributed under the terms of the MIT license, "pytest-rotest" is free and open source software

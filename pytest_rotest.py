@@ -85,7 +85,7 @@ class RotestTestWrapper(UnitTestCase):
                                                test_function.obj)
 
             # Create the test instance in advance (this is required for various
-            # output handlers that assume that all the tests exists at start)
+            # output handlers that assume that all the tests exist at start)
             if not self.config.option.collectonly:
                 test_wrapper._testcase = self.obj(
                     test_function.name,
