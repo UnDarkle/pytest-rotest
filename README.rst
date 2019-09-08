@@ -14,10 +14,6 @@ pytest-rotest
     :target: https://travis-ci.org/UnDarkle/pytest-rotest
     :alt: See Build Status on Travis CI
 
-.. image:: https://ci.appveyor.com/api/projects/status/github/UnDarkle/pytest-rotest?branch=master
-    :target: https://ci.appveyor.com/project/UnDarkle/pytest-rotest/branch/master
-    :alt: See Build Status on AppVeyor
-
 Integration with rotest
 
 ----
@@ -28,13 +24,20 @@ This `pytest`_ plugin was generated with `Cookiecutter`_ along with `@hackebrot`
 Features
 --------
 
-* TODO
+* Full support for running Rotest tests (TestCases and TestFlows)
+* Global resource manager
+* Global Rotest result object
+* --ipdbugger flag for setting up the ipdbugger wrapper (-D or --debug in Rotest cli)
+* --outputs cmd option for setting up output handlers (-o or --outputs in Rotest cli). Most handlers should work fine
+* --config for selecting Rotest run configuration file (-c or --config in Rotest cli)
 
 
 Requirements
 ------------
 
-* TODO
+* Python > 2.7 or > 3.5
+* Rotest > 7.3
+* Pytest > 3.5
 
 
 Installation
@@ -45,11 +48,6 @@ You can install "pytest-rotest" via `pip`_ from `PyPI`_::
     $ pip install pytest-rotest
 
 
-Usage
------
-
-* TODO
-
 Contributing
 ------------
 Contributions are very welcome. Tests can be run with `tox`_, please ensure
@@ -59,22 +57,3 @@ License
 -------
 
 Distributed under the terms of the `MIT`_ license, "pytest-rotest" is free and open source software
-
-
-Issues
-------
-
-If you encounter any problems, please `file an issue`_ along with a detailed description.
-
-.. _`Cookiecutter`: https://github.com/audreyr/cookiecutter
-.. _`@hackebrot`: https://github.com/hackebrot
-.. _`MIT`: http://opensource.org/licenses/MIT
-.. _`BSD-3`: http://opensource.org/licenses/BSD-3-Clause
-.. _`GNU GPL v3.0`: http://www.gnu.org/licenses/gpl-3.0.txt
-.. _`Apache Software License 2.0`: http://www.apache.org/licenses/LICENSE-2.0
-.. _`cookiecutter-pytest-plugin`: https://github.com/pytest-dev/cookiecutter-pytest-plugin
-.. _`file an issue`: https://github.com/gregoil/pytest-rotest/issues
-.. _`pytest`: https://github.com/pytest-dev/pytest
-.. _`tox`: https://tox.readthedocs.io/en/latest/
-.. _`pip`: https://pypi.org/project/pip/
-.. _`PyPI`: https://pypi.org/project
