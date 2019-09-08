@@ -112,13 +112,16 @@ class RotestMethodWrapper(TestCaseFunction):
     """
     def setup(self):
         """Override the setup method to NOT create a test instance again."""
-        self._fix_unittest_skip_decorator()
-        self._obj = getattr(self._testcase, self.name)
-        if hasattr(self._testcase, "setup_method"):
-            self._testcase.setup_method(self._obj)
+        old_obj = self.parent.obj
 
-        if hasattr(self, "_request"):
-            self._request._fillfixtures()
+        def parent_replacer(_):
+            # Revert to old parent object
+            self.parent.obj = old_obj
+            # Return the pre-made testcase instance
+            return self._testcase
+
+        self.parent.obj = parent_replacer
+        super(RotestMethodWrapper, self).setup()
 
     def runtest(self):
         """Run the test with the global Rotest result object."""
