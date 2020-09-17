@@ -82,8 +82,10 @@ class RotestTestWrapper(UnitTestCase):
     def collect(self):
         """Wrap the normal collection to yield initialized Rotest tests."""
         for test_function in super(RotestTestWrapper, self).collect():
-            test_wrapper = RotestMethodWrapper(test_function.name, self,
-                                               test_function.obj)
+            test_wrapper = RotestMethodWrapper.from_parent(
+                                                    self,
+                                                    name=test_function.name,
+                                                    callobj=test_function.obj)
 
             # Create the test instance in advance (this is required for various
             # output handlers that assume that all the tests exist at start)
@@ -159,7 +161,7 @@ def pytest_pycollect_makeitem(collector, name, obj):
     """
     if isinstance(obj, type) and issubclass(obj, (TestSuite, AbstractTest)):
         if is_test_class(obj):
-            return RotestTestWrapper(name, collector)
+            return RotestTestWrapper.from_parent(collector, name=name)
 
         else:
             return []
