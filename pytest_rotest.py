@@ -14,11 +14,12 @@ from rotest.core import TestSuite, TestCase
 from rotest.core.result.result import Result
 from rotest.cli.discover import is_test_class
 from rotest.core.models import RunData, SuiteData
+from rotest.common.utils import parse_config_file
 from rotest.core.abstract_test import AbstractTest
 from rotest.core.result.result import get_result_handlers
 from rotest.management.client.manager import ClientResourceManager
-from rotest.core.runner import DEFAULT_CONFIG_PATH, parse_config_file
 from rotest.cli.client import parse_outputs_option, filter_valid_values
+from rotest.common.constants import DEFAULT_CONFIG_PATH, DEFAULT_SCHEMA_PATH
 
 
 class RotestRunContext(object):
@@ -168,8 +169,10 @@ def pytest_sessionstart(session):
     """Read and initialize Rotest global fields."""
     config = session.config
     RotestRunContext.CONFIG = AttrDict(chain(
-        six.iteritems(parse_config_file(DEFAULT_CONFIG_PATH)),
-        six.iteritems(parse_config_file(config.option.config_path)),
+        six.iteritems(parse_config_file(DEFAULT_CONFIG_PATH,
+                                        DEFAULT_SCHEMA_PATH)),
+        six.iteritems(parse_config_file(config.option.config_path,
+                                        DEFAULT_SCHEMA_PATH)),
         filter_valid_values({'outputs': config.option.outputs,
                              'debug': config.option.ipdbugger})
     ))
