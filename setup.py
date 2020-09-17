@@ -13,7 +13,7 @@ def read(fname):
 
 setup(
     name='pytest-rotest',
-    version='0.2.0',
+    version='0.3.0',
     author_email='gregoil@walla.co.il',
     maintainer_email='gregoil@walla.co.il',
     license='MIT',
@@ -22,7 +22,7 @@ setup(
     long_description=read('README.rst'),
     py_modules=['pytest_rotest'],
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*',
-    install_requires=['pytest>=3.5.0',
+    install_requires=['pytest>=6.0.0',
                       'rotest>=8.3.1'],
     classifiers=[
         'Framework :: Pytest',
